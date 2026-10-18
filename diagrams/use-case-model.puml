@@ -1,0 +1,39 @@
+@startuml
+left to right direction
+actor "Harbour Coordinator" as Coordinator
+actor "Harbour Assistant" as Assistant
+actor "Equipment Officer" as Officer
+actor "System Administrator" as Admin
+rectangle "Harbour Equipment and Berth Service System" {
+usecase "Record Berth Request" as UC01
+usecase "Update Berth Request" as UC02
+usecase "Confirm Berth Request" as UC03
+usecase "Allocate Berth" as UC04
+usecase "Record Berth Change" as UC05
+usecase "Record Harbour Notice" as UC06
+usecase "Reserve Equipment" as UC07
+usecase "Update Equipment Status" as UC08
+usecase "Issue Equipment" as UC09
+usecase "Return Equipment" as UC10
+usecase "Record Vessel Arrival" as UC11
+usecase "Record Vessel Departure" as UC12
+usecase "Record Incident" as UC13
+usecase "View Harbour Overview" as UC14
+usecase "Grant Staff Access" as UC15
+}
+Assistant -- UC01
+Assistant -- UC02
+Assistant -- UC05
+Assistant -- UC11
+Assistant -- UC12
+Assistant -- UC13
+Coordinator -- UC03
+Coordinator -- UC04
+Coordinator -- UC06
+Coordinator -- UC07
+Coordinator -- UC14
+Officer -- UC08
+Officer -- UC09
+Officer -- UC10
+Admin -- UC15
+@enduml

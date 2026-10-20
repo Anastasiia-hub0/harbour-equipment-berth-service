@@ -16,10 +16,11 @@ Work in progress. Sections are updated as the analysis develops. New problems, q
 * Section 6 – Use-case model (catalogue, diagram, detailed use case UC04 Allocate Berth)
 * Section 7 – Gherkin examples (GH01–GH04)
 * Appendix A – User stories and acceptance criteria
+* Section 8 – Candidate concepts and glossary
+
 
 ## Still to do
 
-* Section 8 – Candidate concepts and glossary
 * Section 9 – Domain model
 * Section 10 – Traceability matrix
 * Section 11 – Reflection and AI declaration

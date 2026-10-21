@@ -1,0 +1,102 @@
+@startuml
+left to right direction
+hide methods
+skinparam classAttributeIconSize 0
+
+class Vessel {
+  vesselName
+  vesselType
+  dimensions
+  condition
+}
+
+class BerthRequest {
+  requestDate
+  arrivalTime
+  departureTime
+  purpose
+  contact
+  requiredServices
+  status
+  missingChecks
+  actualArrival
+  actualDeparture
+  accessCleared
+}
+
+class Berth {
+  berthNumber
+  length
+  depth
+  access
+  power
+}
+
+class BerthChange {
+  changeType
+  reason
+  recordedAt
+}
+
+class HarbourNotice {
+  noticeType
+  startDate
+  endDate
+}
+
+class EquipmentCategory {
+  categoryName
+  ratedCapacity
+  authorisationNeeded
+  supervisionNeeded
+}
+
+class EquipmentItem {
+  itemNumber
+  condition
+  readiness
+  location
+  complete
+}
+
+class EquipmentReservation {
+  startDate
+  endDate
+  status
+}
+
+class EquipmentIssue {
+  issueDate
+  returnDate
+  responsiblePerson
+  intendedUse
+  returnCondition
+  recordedAt
+}
+
+class Inspection {
+  inspectionDate
+  result
+  status
+}
+
+class IncidentReport {
+  observations
+  damage
+  cause
+  recordedAt
+}
+
+BerthRequest "0..*" -- "1" Vessel : is for
+BerthRequest "0..*" -- "0..1" Berth : is allocated
+BerthChange "0..*" -- "1" BerthRequest : changes
+BerthChange "0..*" -- "0..1" Berth : moves to
+HarbourNotice "0..*" -- "1..*" Berth : affects
+EquipmentCategory "1" -- "1..*" EquipmentItem : describes
+EquipmentReservation "0..*" -- "1" EquipmentCategory : reserves
+EquipmentReservation "0..*" -- "0..1" BerthRequest : is made with
+EquipmentIssue "0..*" -- "1" EquipmentItem : records issue of
+Inspection "0..*" -- "1" EquipmentItem : checks
+IncidentReport "0..*" -- "0..*" Vessel : involves
+IncidentReport "0..*" -- "0..*" EquipmentItem : involves
+@enduml
